@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-<<<<<<< HEAD
       "@/*": ["./*"]
-=======
-      "@/*": ["./src/*"]
->>>>>>> ae912d7b7d0b5f47998fc37b8985cb40fb9bc964
-    }
+    },
+    "ignoreDeprecations": "6.0"
   }
 }

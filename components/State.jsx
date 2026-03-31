@@ -8,7 +8,7 @@ export default function State() {
   const [age, setAge] = useState(25);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({ name: "", age:0, email: "" });
-    const [Users, SetUsers] = useState([]);
+  const [Users, setUsers] = useState([]);
 
   return (
     <div className="p-4">
@@ -41,35 +41,19 @@ export default function State() {
         className="border-2 bg-red-200 p-2 block my-2"
       />
 
-      <p className="font bold text-2xl">
-        {" "}
-        Is Logged In: {isLoggedIn.toString()}
-      </p>
+      <p className="font-bold text-2xl">Is Logged In: {isLoggedIn.toString()}</p>
+      <button className="border-2 bg-red-200 px-4 py-1 mr-2"
+        onClick={() => setIsLoggedIn(!isLoggedIn)}
+      >
+      {isLoggedIn ? "Logout" : "Login"}
+      </button>
+      <p className="font bold text-2xl">user {user.name}, Age: {user.age}, Email: {user.email}</p>
       <button
         className="border-2 bg-red-200 px-4 py-1 mr-2"
-        onClick={() => setIsLoggedIn(isLoggedIn)}
+        onClick={() => setUser({ name: nameOfPerson, age: age ,email: user.email})}
       >
-        {isLoggedIn ? "log out" : "log in"}
+        set User
       </button>
-
-      <p className="font bold text-2xl">
-        user {user.name}, Age: {user.age}
-      </p>
-      <button
-        className="border-2 bg-red-200 px-4 py-1 mr-2"
-        onClick={() => setUser([...Users, { name: nameOfPerson, age: age ,email: user.email}])}
-      >
-        Add User
-      </button>
-
-      <ui>
-        {Users.map((user, index) => (
-          <li key={index}>
-            {user.name}, Age: {user.age}, Email: {user.email}   
-          </li>
-        ))}
-      </ui>
-
 
       <button
         className="border-2 bg-red-200 px-4 py-1 mr-2"
@@ -84,6 +68,22 @@ export default function State() {
       >
         Decrement
       </button>
+
+      <button
+        className="border-2 bg-red-200 px-4 py-1 mr-2"
+        onClick= {() => setUsers([...Users, { name: nameOfPerson, age: age, email: user.email }])}
+      >
+        add User
+      </button>
+
+
+         <ui>
+        {Users.map((user, index) => (
+          <li key={index}>
+            {user.name}, Age: {user.age}, Email: {user.email}   
+          </li>
+        ))}
+      </ui>
     </div>
   );
 }

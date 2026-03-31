@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import State from "../components/State";
-import Button from "../components/Button";
+import State from "@/components/State";
+import Count from "@/components/Count";
+import Button from "@/components/Button";
+import Timer from "@/components/Timer";
 
 export default function Home() {
   const books = [
@@ -91,14 +93,18 @@ export default function Home() {
         </div>
       </section>
 
-      <State />
-        <button variant="primary" className="bg-blue-500 text-white px-4 py-2 rounded">
-          Click Me
-        </button>
-       <button variant="secondary" className="bg-gray-500 text-white px-4 py-2 rounded">
-          Click Me
-        </button>
+      {/* <State /> */}
+      <Count />
+      <Timer />
+      {/* <button variant="primary" className="bg-blue-500 text-white px-4 py-2 rounded">
+          Primary Button
+
+        </button> */}
+       {/* <button variant="secondary" className="bg-gray-500 text-white px-4 py-2 rounded">
+           Secondary Button
+         </button>  */}
+        
     
-    </div>
+     </div>
   );
 }
