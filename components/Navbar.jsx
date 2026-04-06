@@ -9,12 +9,12 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {/* LOGO */}
+     
       <div className={styles.logo}>
         <Link href="/">📚 BookStore</Link>
       </div>
 
-      {/* MENU ICON (Mobile) */}
+    
       <div
         className={styles.menuIcon}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -22,7 +22,7 @@ export default function Navbar() {
         ☰
       </div>
 
-      {/* LINKS */}
+   
       <div
         className={`${styles.links} ${
           menuOpen ? styles.active : ""
@@ -35,7 +35,7 @@ export default function Navbar() {
         <Link href="/profile">Profile</Link>
         <Link href="/admin">Admin</Link>
 
-        {/* CART */}
+      
         <Link href="/cart" className={styles.cart}>
           Cart <span className={styles.badge}>2</span>
         </Link>
