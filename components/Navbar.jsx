@@ -31,9 +31,9 @@ export default function Navbar() {
         <Link href="/">Home</Link>
         <Link href="/books">Books</Link>
         <Link href="/about">About</Link>
-        <Link href="/contact">Contact</Link>
-        <Link href="/profile">Profile</Link>
         <Link href="/admin">Admin</Link>
+        <Link href="/orders">Orders</Link>
+        <Link href="/auth/login">Login</Link>
 
       
         <Link href="/cart" className={styles.cart}>
