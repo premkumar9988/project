@@ -1,29 +1,33 @@
-name:  CI/CD
+name: CI/CD
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v3
+      - name: check html
+        run:
+          echo "Checking HTML files..."
+          is
+          if[! -f index.html ]; then
+            echo " index.html file is not found!"
+
+       - name: Deploy to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          node-version: 18
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public     
+           
 
-      - run: npm ci
-      - run: npm run lint || echo "No lint"
-      - run: npm run test || echo "No tests"
-      - run: npm run build
-      - run: npm audit
+          
 
-  cd:
-    needs: ci
-    runs-on: ubuntu-latest
-
-    steps:
-      - run: echo "Deploy step here"
