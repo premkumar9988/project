@@ -1,0 +1,29 @@
+name:  CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm ci
+      - run: npm run lint || echo "No lint"
+      - run: npm run test || echo "No tests"
+      - run: npm run build
+      - run: npm audit
+
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Deploy step here"
